@@ -6,7 +6,6 @@ int split(char file[],int size,char prefix)
 		char generated_filename[4]={prefix,'a','`','\0'};
 		char buf[200];
 		int c=0;
-
 		FILE *ptr_file,*ptr_file2;
 		ptr_file = fopen(file,"r");
 

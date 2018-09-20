@@ -1,3 +1,3 @@
 # Unix lab
 
-split.c - A primitive replica of split unix command
+split.c - A rudimentary replica of split unix command bypassing the file naming convention

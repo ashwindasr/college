@@ -3,9 +3,7 @@
 
 int split(char file[],int size,char prefix)
 {
-		char generated_filename[2];
-		generated_filename[0]='a';
-		generated_filename[1]='`';
+		char generated_filename[4]={prefix,'a','`','\0'};
 		char buf[200];
 		int c=0;
 
@@ -15,15 +13,15 @@ int split(char file[],int size,char prefix)
 while(fgets(buf,200,ptr_file)!=NULL)
     {
 			
-			if(c>size || c==0)		//Condition for creating new file
+			if(c==size || c==0)		//Condition for creating new file
 			{
 				c=0;
-				if(generated_filename[1] < 'z'){
-				generated_filename[1]++;
+				if(generated_filename[2] < 'z'){
+				generated_filename[2]++;
 			}
 			else{
-				generated_filename[0]++;
-				generated_filename[1] = 'a';
+				generated_filename[1]++;
+				generated_filename[2] = 'a';
 			}
 			if(generated_filename[2] > 'z'){
 				printf("File limit: 676 reached\n");

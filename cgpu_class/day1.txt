@@ -1,0 +1,6 @@
+#include - to include duntion signatures. to see- /usr/include
+return 0 - the zero goes to os
+CRLF - carriage return and line feed
+    crlf - move the paper by one line and move the head forward.
+executable permission for a directory means that you can search the directory.
+the bytes in ls -l is the number of bytes of the directory name

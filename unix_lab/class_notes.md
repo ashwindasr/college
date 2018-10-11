@@ -87,3 +87,24 @@ do
         chmod 600 $x
 done
 ```
+11/10/18
+Question: Rename a file with the owner appended to filename
+```bashscript
+#!/bin/sh
+
+if [ $1 ] 
+then
+
+        mv $1 "$1_$( ls -l "$1" | cut -d ' ' -f3)"
+
+fi 
+```
+Question: Rename all the files with owner name
+```bashscript
+#!/bin/sh
+
+for x in $( ls )
+do
+	echo "${x}_$( ls -l $x | cut -d' ' -f3)"
+done
+```

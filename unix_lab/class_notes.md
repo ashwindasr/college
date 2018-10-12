@@ -118,4 +118,7 @@ Question: diff:
 sh -v calculate.sh
 sh -x calculate.sh
 
-Question: Print all nu
+Question: Print all numbers between 50 and 100
+
+Run a script in the background: &
+&& - to 

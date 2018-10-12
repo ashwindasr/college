@@ -108,3 +108,6 @@ do
 	echo "${x}_$( ls -l $x | cut -d' ' -f3)"
 done
 ```
+12/10/18
+Question: ax20 - bx2 + c/d 
+1 12 5 2 ans: 18

@@ -111,3 +111,11 @@ done
 12/10/18
 Question: ax20 - bx2 + c/d 
 1 12 5 2 ans: 18
+
+Question: 12345 seconds  output: 3hrs 25 minutes 45 seconds
+
+Question: diff: 
+sh -v calculate.sh
+sh -x calculate.sh
+
+Question: Print all nu

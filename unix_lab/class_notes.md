@@ -111,6 +111,12 @@ done
 12/10/18
 Question: ax20 - bx2 + c/d 
 1 12 5 2 ans: 18
+```bashscript
+#!/bin/sh
+
+echo $(($1*20 + $2*2 + $3/$4))
+
+```
 
 Question: 12345 seconds  output: 3hrs 25 minutes 45 seconds
 
@@ -122,3 +128,6 @@ Question: Print all numbers between 50 and 100
 
 Run a script in the background: &
 && - to 
+
+15/10/18
+Learn how to make a make file

@@ -105,7 +105,7 @@ Question: Rename all the files with owner name
 
 for x in $( ls )
 do
-	echo "${x}_$( ls -l $x | cut -d' ' -f3)"
+	mv $x "${x}_$( ls -l $x | cut -d' ' -f3)"
 done
 ```
 12/10/18

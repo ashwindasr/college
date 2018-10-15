@@ -119,6 +119,35 @@ echo $(($1*20 + $2*2 + $3/$4))
 ```
 
 Question: 12345 seconds  output: 3hrs 25 minutes 45 seconds
+```bashscript
+#!/bin/sh
+
+x=$1
+h=0
+m=0
+s=0
+while [ $x -gt 0 ]
+do
+	if [ $x -gt 3600 ]	
+	then 
+		h=$((h+1))
+		x=$(($x-3600))
+	elif [ $x -gt 60 ]
+	then 
+		m=$((m+1))
+		x=$(($x-60))
+	else		
+		if [ $x -eq 60 ]
+		then
+			m=$(($m+1))
+		else
+			s=$x
+		fi
+		break
+	fi
+done	 
+echo $h "hours" $m "minutes" $s "seconds"
+```
 
 Question: diff: 
 sh -v calculate.sh

@@ -154,6 +154,18 @@ sh -v calculate.sh
 sh -x calculate.sh
 
 Question: Print all numbers between 50 and 100
+```bashscript
+#!/bin/sh
+
+x=50
+y=100
+
+while [ $x -le $y ]
+do
+        echo $x
+        x=$(($x+1))
+done
+```
 
 Run a script in the background: &
 && - to 

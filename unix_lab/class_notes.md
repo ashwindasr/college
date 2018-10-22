@@ -150,8 +150,8 @@ echo $h "hours" $m "minutes" $s "seconds"
 ```
 
 Question: diff: 
-sh -v calculate.sh
-sh -x calculate.sh
+sh -v calculate.sh - displays code along with the output
+sh -x calculate.sh - displays debugging info along with output
 
 Question: Print all numbers between 50 and 100
 ```bashscript
@@ -172,3 +172,8 @@ Run a script in the background: &
 
 15/10/18
 Learn how to make a make file
+
+22/10/18
+* sed command 
+	* replace: sed 's/unix/linux/' filename   - replaces all occurences unix with linux within the file
+	 	* sed 's/unix/linux/' filename < filename2 -to write to a different file

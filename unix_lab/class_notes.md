@@ -177,3 +177,29 @@ Learn how to make a make file
 * sed command 
 	* replace: sed 's/unix/linux/' filename   - replaces all occurences unix with linux within the file
 	 	* sed 's/unix/linux/' filename < filename2 -to write to a different file
+
+24/10/18
+Question: Get the details of n students and generate mark card with filename as rollno
+```script
+#!/bin/sh
+
+read -p "Enter number of students: "  n
+count=1
+while [ $count -le $n ]
+do
+	echo "Student $count Details:\n"
+	read -p "Enter Your Name: "  name
+	read -p "Enter Your Roll No: "  roll
+	read -p "Enter Mark1: "  mark1
+	read -p "Enter Mark2: "  mark2
+	read -p "Enter Mark3: "  mark3
+	
+	echo "Name: $name" > "$roll.txt"
+	echo "Roll: $roll" >> "$roll.txt"
+	echo "Mark1: $mark1" >> "$roll.txt"
+	echo "Mark2: $mark2" >> "$roll.txt"
+	echo "Mark3: $mark3" >> "$roll.txt"
+	echo "\n"
+	count=$((count+1))
+done
+```

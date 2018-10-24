@@ -193,13 +193,17 @@ do
 	read -p "Enter Mark1: "  mark1
 	read -p "Enter Mark2: "  mark2
 	read -p "Enter Mark3: "  mark3
-	
+	s=$((mark1+mark2+mark3))
+	s=$(echo "$s/300" | bc -l)
+	s=$(echo "$s*100" | bc -l)
 	echo "Name: $name" > "$roll.txt"
 	echo "Roll: $roll" >> "$roll.txt"
 	echo "Mark1: $mark1" >> "$roll.txt"
 	echo "Mark2: $mark2" >> "$roll.txt"
 	echo "Mark3: $mark3" >> "$roll.txt"
+	echo "Percentage: " $s >> "$roll.txt"
 	echo "\n"
 	count=$((count+1))
 done
+
 ```

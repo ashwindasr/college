@@ -16,11 +16,10 @@ START: MOV AX,DATA
        DEC CX
        JNZ L
        
-       MOV AH,4CH
+   F:  MOV AH,4CH
        INT 21H       
 RESULT:
        MOV BL,01H
-       MOV AH,4CH
-       INT 21H
+       JMP F
 CODE ENDS
 END START

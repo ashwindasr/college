@@ -7,11 +7,12 @@ START: MOV AX,DATA
        MOV DS,AX
        MOV BL,num
        MOV CL,00H
-  L:   INC CL
+  L:   
        MOV AL,CL
        MUL AL
        CMP AL,BL
        JE ANS
+       INC CL
        CMP AL,BL
        JL L
 

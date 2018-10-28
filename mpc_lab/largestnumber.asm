@@ -7,7 +7,7 @@ START: MOV AX,DATA
        MOV DS,AX
        
        MOV SI,01H
-       MOV CX,05H
+       MOV CX,04H
        MOV BL,a[00H]
    L:  MOV AL,a[SI]
        CMP AL,BL

@@ -49,3 +49,18 @@ BEGIN
 END;
 $BODY$
 LANGUAGE plpgsql;
+
+
+/* Function to divide 2 numbers */
+CREATE OR REPLACE FUNCTION divide(n NUMERIC,m NUMERIC)
+RETURNS NUMERIC AS
+$BODY$
+DECLARE
+  res NUMERIC = 0;
+BEGIN
+        res = n/m;
+       RETURN res;
+
+END;
+$BODY$
+LANGUAGE plpgsql;

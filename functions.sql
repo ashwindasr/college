@@ -55,12 +55,11 @@ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION divide(n NUMERIC,m NUMERIC)
 RETURNS NUMERIC AS
 $BODY$
-DECLARE
-  res NUMERIC = 0;
 BEGIN
-        res = n/m;
-       RETURN res;
-
+      IF m=0 THEN RAISE EXCEPTION 'Division by zero' USING HINT='Denominator cannnot be zero';
+      ELSE
+       RETURN n/m;
+      END IF;
 END;
 $BODY$
 LANGUAGE plpgsql;

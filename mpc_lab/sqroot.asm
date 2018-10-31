@@ -15,10 +15,8 @@ START: MOV AX,DATA
        INC CL
        CMP AL,BL
        JL L
-
-       MOV AH,4CH
-       INT 21H
-
+       DEC CL
+       JMP ANS
  ANS:  MOV DL,CL
        MOV AH,4CH
        INT 21H

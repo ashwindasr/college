@@ -37,13 +37,25 @@ date date not null
 
 insert into branch(bname,city) values ('Manacaud','Trivandrum'),('East Fort','Trivandrum'),('Pala','Kottayam');
 
-insert into customer(cname,city) values ('Das','Trivandrum'),('Titus','Kottayam');
+insert into customer(cname,city) values ('aromal','Trivandrum'),('Titus','Kottayam');
 
 insert into deposit(cid,b_id,amount,date) values (1,1,10000,'09-01-2018'),(2,1,20000,'09-01-2018'),(1,2,10000,'09-05-2018');
 
 insert into borrow(cid,b_id,amount,date) values (1,1,10000,'09-01-2018'),(2,1,20000,'09-01-2018'),(1,2,10000,'09-05-2018');
 
 /*Find the number of customers who have loan in each branch */
-select count(*) from customer natural join borrow;
+create or replace function num()
+RETURNS TABLE(
+bid int,
+count bigint
+) 
+as
+$$
+begin
+	RETURN QUERY select b_id,COUNT(*) from borrow group by b_id;
+end;
+$$
+language plpgsql;
+
 /*List all details of all customers*/
 select * from customer;

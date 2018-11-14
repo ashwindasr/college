@@ -44,6 +44,6 @@ insert into deposit(cid,b_id,amount,date) values (1,1,10000,'09-01-2018'),(2,1,2
 insert into borrow(cid,b_id,amount,date) values (1,1,10000,'09-01-2018'),(2,1,20000,'09-01-2018'),(1,2,10000,'09-05-2018');
 
 /*Find the number of customers who have loan in each branch */
-select * from customer natural join borrow;
+select count(*) from customer natural join borrow;
 /*List all details of all customers*/
 select * from customer;

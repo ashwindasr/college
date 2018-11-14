@@ -207,8 +207,8 @@ do
 done
 
 ```
-14/11/18:
-awk:
+14/11/18: <br/>
+awk:<br />
 access column wise: use $n, where n is the number of the column
 $0 will print all columns
 ```bash script

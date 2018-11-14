@@ -207,3 +207,12 @@ do
 done
 
 ```
+14/11/18:
+awk:
+access column wise: use $n, where n is the number of the column
+$0 will print all columns
+```bash script
+ls -l || awk '{print $1}'
+```
+also $NR for last column and $(NR-1) for second last ...
+

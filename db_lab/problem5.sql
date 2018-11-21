@@ -18,12 +18,4 @@ insert into employee(name,dob,sal,dept_id) values('sukumaran','01-01-1998',10000
 
 update employee set sal=sal+sal*20/100 where dept_id=1;
 
-CREATE or REPLACE FUNCTION changer()
-RETURNS int
-AS
-$$
-
-	UPDATE employee set sal=sal+sal*20/100 where dept_id=1;
-end;
-$$
-language plpgsql;
+select max(sal) from employee group by dept_id having dept_id=2;

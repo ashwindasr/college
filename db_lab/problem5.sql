@@ -16,6 +16,13 @@ insert into department(dept_name) values('HR'),('IT'),('Program');
 insert into employee(name,dob,sal,dept_id) values('sukumaran','01-01-1998',10000,1),('abhilash','01-01-1998',100000,2),
 ('nidhi','08-17-1998',200000,2),('varsha','12-15-1998',10000000,1);
 
-update employee set sal=sal+sal*20/100 where dept_id=1;
+create or replace function changer()
+returns void as
+$$
+begin
+	update employee set sal=sal+sal*20/100 where dept_id=1;
+end;
+$$
+language plpgsql;
 
 select max(sal) from employee group by dept_id having dept_id=2;

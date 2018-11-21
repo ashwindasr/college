@@ -25,4 +25,15 @@ end;
 $$
 language plpgsql;
 
-select max(sal) from employee group by dept_id having dept_id=2;
+create or replace function max_(i int)
+returns table(
+maxx money
+)
+ as
+$$ 
+begin
+	return query select max(sal) from employee group by dept_id having dept_id=i;
+end;
+$$
+language plpgsql;
+

@@ -31,9 +31,13 @@ returns trigger as
 $$
 begin
         insert into t1_backup values(old.id,now());
-        return new;
+        return old;
 end;
 $$
 language plpgsql;
 
 delete from t1 where id=1;
+
+BEFORE 
+AFTER
+INSTEAD

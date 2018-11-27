@@ -14,8 +14,8 @@ dept_name varchar(15) not null
 
 insert into department(dept_name) values('HR'),('IT'),('Program');
 
-insert into employee(name,dob,sal,dept_id) values('sukumaran','01-01-1998',10000,1),('abhilash','01-01-1998',100000,2),
-('nidhi','08-17-1998',200000,2),('varsha','12-15-1998',10000000,1);
+insert into employee(name,dob,sal,dept_id) values('sukumaran','01-01-1998','01-01-2017',10000,1),('abhilash','01-01-1998','01-01-2018',100000,2),
+('nidhi','08-17-1998','01-01-2016',200000,2),('varsha','12-15-1998','01-01-2015',10000000,1);
 
 create or replace function changer()
 returns void as

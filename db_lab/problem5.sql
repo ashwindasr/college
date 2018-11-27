@@ -2,6 +2,7 @@ create table employee(
 emp_id serial not null,
 name varchar(15) not null,
 dob date not null,
+doj date not null,
 sal money not null,
 dept_id int not null references department(dept_id)
 );

@@ -58,4 +58,16 @@ $$
 language plpgsql;
 
 /*List all details of all customers*/
-select * from customer;
+select * from customer;create or replace function details()
+returns table(
+id int,
+name text,
+city_name text
+)
+as
+$$
+begin
+return query select * from customer;
+end;
+$$
+language plpgsql;

@@ -41,10 +41,23 @@
 			<tr>	
 		</table>
 		<h3>Form</h3>
-		<form method='GET' action="">
-			<label>Name: </label><input name='name' type='text' /><br />
-			<lablel>Email: </label><input name='email' type='text' /><br />
-			<label>Password: </label><input name='password' type='password' /><br />
+		<form method='POST' action="a.php">
+			<label>Name: </label><input name='name' type='text' /><br /><br />
+			<lablel>Email: </label><input name='email' type='text' /><br /><br />
+			<label>Password: </label><input name='password' type='password' /><br /><br />
+			<lablel>Gender: </lable><input name='gender' value='male' type='radio' checked/>Male
+			<input name='gender' value='female' type='radio' />Female<br /><br />
+			<label>Year: </label>
+			<select name='Year'>
+				<option value='1'>1st Year</option>
+				<option value='2'>2nd Year</option>
+				<option value='3'>3rd Year</option>
+				<option value='4'>4th Year</option>
+			</select><br/ ><br />
+			<label>Comments: </label><textarea name='comment'></textarea><br /><br />
+			<input type='submit' name='submit' value='submit' />
+			<input type='reset' value='clear' name='clear' />
 		</form>
+
 	</body>
 </html>

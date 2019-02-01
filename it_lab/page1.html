@@ -8,6 +8,15 @@
 	<body>
 		<h1>My Webpage</h1>
 		<br />
+		<p align='justify'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLorem ipsum dolor sit amet, cu minim facete reprehendunt duo, cum vocent voluptua ut. Ei vis modo wisi postulant. Dicit principes eloquentiam ex has, nec at mazim diceret repudiandae. Ex mei quaeque recusabo, ullum posidonium duo at.
+
+Qui duis libris te, soluta tractatos ei eum. Everti menandri adversarium ea vel, congue graecis incorrupte nam ut. Ignota similique ei his, cum at doctus audiam. At reque congue per. Mutat nostro inciderint mel eu, stet putent eu quo.
+
+In magna commune reformidans sit. Nec at dicat meliore, lucilius tacimates id usu, nec et tantas mollis indoctum. In sea tota saepe incorrupte, sea in facete recteque vituperata, duo eu mutat inermis. Affert tantas suscipiantur te pri, modus errem eam cu, dicam luptatum duo ex. An qui dolorem scriptorem.
+
+Novum offendit omittantur his te, mucius regione efficiendi has et. Pri suscipit democritum ei, id dictas dissentiunt mea. No clita doctus adipisci usu. In duo quando meliore neglegentur.
+
+Ne sed assum postulant. Eum quaeque erroribus in, legendos maluisset disputando qui et. Est ut partem tibique, ei graecis definitiones vix. Pri elit electram voluptatum ex. Malorum aliquid sanctus eum et. Reque laudem nam an, et vidit prima aeterno quo, iudicabit adolescens temporibus et nec.</p>
 		<h3>Ordered list</h3>
 		<ol>
 			<li>item 1</li>
@@ -40,24 +49,29 @@
 					<td>Row 2 Col 3</td>
 			<tr>	
 		</table>
-		<h3>Form</h3>
+		<h3>Sign up</h3>
 		<form method='POST' action="a.php">
-			<label>Name: </label><input name='name' type='text' /><br /><br />
-			<lablel>Email: </label><input name='email' type='text' /><br /><br />
-			<label>Password: </label><input name='password' type='password' /><br /><br />
-			<lablel>Gender: </lable><input name='gender' value='male' type='radio' checked/>Male
-			<input name='gender' value='female' type='radio' />Female<br /><br />
-			<label>Year: </label>
-			<select name='Year'>
-				<option value='1'>1st Year</option>
-				<option value='2'>2nd Year</option>
-				<option value='3'>3rd Year</option>
-				<option value='4'>4th Year</option>
-			</select><br/ ><br />
-			<label>Comments: </label><textarea name='comment'></textarea><br /><br />
-			<input type='submit' name='submit' value='submit' />
-			<input type='reset' value='clear' name='clear' />
+		    <fieldset style="width:40px;">
+		        <legend>Form</legend>
+			    <label>Name: </label><input name='name' type='text' placeholder="Full name" autofocus required /><br /><br />
+			    <lablel>Email: </label><input name='email' type='text' placeholder='email' required /><br /><br />
+			    <label>Password: </label><input name='password' type='password' placeholder='password' required /><br /><br />
+			    <lablel>Gender: </lable><input name='gender' value='male' type='radio' checked />Male
+			    <input name='gender' value='female' type='radio' />Female<br /><br />
+			    <label>Year: </label>
+			    <select name='Year'>
+				    <option value='1'>1st Year</option>
+				    <option value='2'>2nd Year</option>
+				    <option value='3'>3rd Year</option>
+				    <option value='4'>4th Year</option>
+			    </select><br/ ><br />
+			    <label>Date-Time: </label><input type="datetime-local" name="date" />
+			    <label>Review: </legend><input type='range' min=1 max=100 step=10 required /><br />
+			    <label>Comments: </label><textarea name='comment'></textarea><br /><br />
+			    <input type='submit' name='submit' value='submit' />
+			    <input type='reset' value='clear' name='clear' />
+			</fieldset>
 		</form>
-
+        <p align='center'>This website is the property of Das&reg. All rights reserved&copy.</p>
 	</body>
 </html>

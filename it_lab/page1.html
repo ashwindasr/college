@@ -53,7 +53,7 @@ Ne sed assum postulant. Eum quaeque erroribus in, legendos maluisset disputando 
 		<form method='POST' action="a.php">
 		    <fieldset style="width:40px;">
 		        <legend>Form</legend>
-			    <label>Name: </label><input name='name' type='text' placeholder="Full name" autofocus required /><br /><br />
+			    <label>Name: </label><input name='name' type='text' placeholder="Full name" autofocus required autocomplete="on" /><br /><br />
 			    <lablel>Email: </label><input name='email' type='text' placeholder='email' required /><br /><br />
 			    <label>Password: </label><input name='password' type='password' placeholder='password' required /><br /><br />
 			    <lablel>Gender: </lable><input name='gender' value='male' type='radio' checked />Male
@@ -66,6 +66,12 @@ Ne sed assum postulant. Eum quaeque erroribus in, legendos maluisset disputando 
 				    <option value='4'>4th Year</option>
 			    </select><br/ ><br />
 			    <label>Date-Time: </label><input type="datetime-local" name="date" />
+<!-- Data list --> 			    
+			    <label>Data list: </label><input type="text" list="month" />
+			    <datalist id="month">
+			    <option value="Jan" />
+			    <option value="Feb" />
+			    </datalist>
 			    <label>Review: </legend><input type='range' min=1 max=100 step=10 required /><br />
 			    <label>Comments: </label><textarea name='comment'></textarea><br /><br />
 			    <input type='submit' name='submit' value='submit' />

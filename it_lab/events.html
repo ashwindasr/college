@@ -4,7 +4,7 @@
 		<title>Event Handling</title>
 		<meta charset="utf-8">
 	</head>
-	<body onload="document.getElementById('body_load').innerHTML='Document loaded'" onkeydown="alert('You pressed a key')">
+	<body onload="document.getElementById('body_load').innerHTML='Document loaded'" onkeydown="document.body.style.background='green'">
 		<span id="body_load"></span><br /><br />
 		<button id="hi_button" onclick="document.getElementById('hi_out').innerHTML='Hi'"> Hi ! </button>&nbsp;&nbsp;
 		<span id="hi_out"></span>

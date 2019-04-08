@@ -43,8 +43,9 @@
 			var a=document.getElementById("armstrong").value;		
 			var copy=a;
 			var sum=0;
+			var l=a.toString().length;
 			while(copy>0){
-					sum=sum+(Math.pow((copy%10),3));
+					sum=sum+(Math.pow((copy%10),l));
 					copy=parseInt(copy/10);
 			}
 			if(sum==a){
@@ -69,6 +70,19 @@
 				document.getElementById("neon_out").innerHTML=" Its not Neon !";
 			}
 		}	
+		function all_func(){
+			var a=document.getElementById("all").value;
+			document.getElementById("prime").value=a;
+			document.getElementById("palindrome").value=a;
+			document.getElementById("armstrong").value=a;
+			document.getElementById("neon").value=a;
+			
+			prime();
+			palindrome();
+			armstrong();
+			neon();
+		}
+		
 	</script>
 		<div align='center'>
 			<div style="border-style: solid;border-width: thin;width:200px">
@@ -130,6 +144,12 @@
 					<button id="neon_button" onclick="return neon()">Neon</button><span id="neon_out"></span>
 				</td>
 			</tr>
-			
+			<tr>
+				<td></td>
+				<td style="border-style: solid;border-width: thin;border-top:hidden;border-right:hidden;border-bottom:hidden;padding-left:150px;">
+					<input type='text' id='all'>
+					<button id="neon_button" onclick="return all_func()">Check All</button><span id="all_out"></span>
+				</td>
+			</tr>
 	</body>
 </html>

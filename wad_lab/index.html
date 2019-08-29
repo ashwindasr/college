@@ -1,27 +1,76 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>Student Dashboard</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div align="center">
-            <fieldset style="width:200px">
-            <legend>Student Dashboard</legend>
-            <form method="POST" action="servlet">
-                Firstname:<input type="text" name="fname" /><br />
-                Lastname:<input type="text" name="lname" /><br />
-                Username:<input type="text" name="user" /><br />
-                Password:<input type="password" name="pass" /><br /><br />
-                <input type="submit" value="Login" name="login" /> <input type="submit" value="Register" name="register" />
-            </form>
-        </fieldset>
-        </div>
-    </body>
-</html>
+	<head>
+		<title>Student details</title>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="hide.js"></script>
+	</head>
+	<body>
+
+		<h1 align='center'>Student Admin Panel</h1>
+
+		<div align='center'>
+			<button onclick="unhide(1)" >Input</button>
+			<button onclick="unhide(2)" >Search</button>
+			<button onclick="unhide(3)" >Delete</button>
+                        <button onclick="unhide(5)" >Update</button>
+			<button onclick="unhide(4)" >All</button>
+		</div>
+		<br>
+		<div>
+			<div id="student_input" align='center' >
+				<fieldset style="width:200px">
+					<legend>Student Input</legend>
+					<form name="student_input" method="post" action="servlet" >
+						<label>Name: </label><input type="text" name='name' autofocus required /><br /><br />
+						<label>Roll no: </label><input type="text" name='rollno' required/><br /><br />
+						<label>Branch: </label><input type="text" name='branch' required/><br /><br />
+						<input type="submit" name="register" value="Register"  />
+					</form>
+				</fieldset>
+			</div>
+			<div id="student_search" align='center' hidden>
+				<fieldset style="width:200px">
+					<legend>Student Search</legend>
+					<form name="my_form2" method="post" action="servlet" >
+						<label>Roll no: </label><input type="text" name='rollno' required/><br /><br />
+						<input type="submit" name='register' value="Search" />
+					</form>
+				</fieldset>
+			</div>
+                        <div id="student_update" align='center' hidden>
+				<fieldset style="width:200px">
+					<legend>Student Update</legend>
+					<form name="my_form2" method="post" action="servlet" >
+						<label>Name: </label><input type="text" name='name' autofocus required /><br /><br />
+						<label>Roll no: </label><input type="text" name='rollno' required/><br /><br />
+						<label>Branch: </label><input type="text" name='branch' required/><br /><br />
+						<input type="submit" name="register" value="Update"  />
+					</form>
+				</fieldset>
+			</div>
+		</div>
+		<div id="student_delete" align='center' hidden>
+			<fieldset style="width:200px">
+				<legend>Student Delete</legend>
+				<form name="my_form2" method="post" action="servlet" onsubmit="alert('Are you sure ?')" >
+					<label>Roll no: </label><input type="text" name='rollno' required/><br /><br />
+					<input type="submit" name='register' value="Delete" />
+				</form>
+			</fieldset>
+		</div>
+		<div id="student_all" align='center' hidden>
+			<fieldset style="width:200px">
+				<legend>Display details of all students</legend>
+				<form name="my_form2" method="post" action="servlet" >
+					<input type="submit" name='register' value="Cick Here" />
+				</form>
+			</fieldset>
+		</div>
+	</div>
+
+
+
+
+
+	</body>

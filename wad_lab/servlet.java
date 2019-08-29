@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ash
+ * @author wad14
  */
 @WebServlet(urlPatterns = {"/servlet"})
 public class servlet extends HttpServlet {
@@ -33,6 +33,23 @@ public class servlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet servlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet servlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+    
     protected void processRequestReg(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -40,10 +57,9 @@ public class servlet extends HttpServlet {
         String db_user = "postgres";
         String db_pass = "root";
         
-        String fname = request.getParameter("fname");
-        String lname = request.getParameter("lname");
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
+        String name = request.getParameter("name");
+        String rollno = request.getParameter("rollno");
+        String branch = request.getParameter("branch");
         
         Connection connection;
         PrintWriter out = response.getWriter();
@@ -57,21 +73,22 @@ public class servlet extends HttpServlet {
                 connection = DriverManager.getConnection(url, db_user, db_pass);
                 out.println("Connected");
                 Statement stmt = connection.createStatement();                
-                int i = stmt.executeUpdate("INSERT INTO data(fname, lname, username, password) VALUES ('"+fname+"','"+ lname+"','"+ user+"','" + pass +"');");
+                int i = stmt.executeUpdate("INSERT INTO data(name, rollno, department) VALUES ('"+name+"','"+ rollno+"','"+ branch+"');");
                 out.println("Successfully registered !");
                 connection.close();
         } catch (SQLException ex) {
         out.println(ex.getMessage());        
         }
     }
-    protected void processRequestLog(HttpServletRequest request, HttpServletResponse response)
+protected void processRequestSearch(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Connection connection;
         String url = "jdbc:postgresql://localhost:5432/student";
         String db_user = "postgres";
         String db_pass = "root";
-        String username = null;
-        String password = null;
+        String roll = null;
+        String name = null;
+        String dept = null;
         PrintWriter out = response.getWriter();
         try {        
             Class.forName("org.postgresql.Driver");    
@@ -81,8 +98,7 @@ public class servlet extends HttpServlet {
         }    
         try {
                 
-                String user = request.getParameter("user");
-                String pass = request.getParameter("pass");
+                String rollno = request.getParameter("rollno");
                 Boolean found = false;
                 connection = DriverManager.getConnection(url, db_user, db_pass);
                 out.println("Connected");
@@ -90,22 +106,125 @@ public class servlet extends HttpServlet {
                 ResultSet rs = stmt.executeQuery("select * from data;");
                 while(rs.next())
                 {
-                    username = rs.getString("username");
-                    password = rs.getString("password");
-                    if (username.equals(user)&&password.equals(pass))
-                    {
+                    roll = rs.getString("rollno");
+                    if (rollno.equals(roll))
+                    {   
                         found = true;
                         break;
                     }
                 }
                 if (true == found)
                 {                    
-                   out.println("Login success");                   
+                        name = rs.getString("name");
+                        dept = rs.getString("department");
+                        out.println(name);
+                        out.println(roll);
+                        out.println(dept);                
                 }
                 else
                 {
                     out.println("Login Failed");
                 }
+                connection.close();
+        } catch (SQLException ex) {
+        out.println(ex.getMessage());        
+        } 
+    }
+
+protected void processRequestDel(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+         String url = "jdbc:postgresql://localhost:5432/student";
+        String db_user = "postgres";
+        String db_pass = "root";
+        
+        String rollno = request.getParameter("rollno");
+        
+        Connection connection;
+        PrintWriter out = response.getWriter();
+                try {        
+            Class.forName("org.postgresql.Driver");    
+        } catch(ClassNotFoundException e ){
+              //e.getMessage();
+              out.println(e.getMessage());
+        }    
+        try {
+                connection = DriverManager.getConnection(url, db_user, db_pass);
+                out.println("Connected");
+                Statement stmt = connection.createStatement();                
+                int i = stmt.executeUpdate("delete from data where rollno='"+rollno+"';");
+                out.println("Successfully Deleted !");
+                connection.close();
+        } catch (SQLException ex) {
+        out.println(ex.getMessage());        
+        }
+    }
+
+protected void processRequestUp(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+         String url = "jdbc:postgresql://localhost:5432/student";
+        String db_user = "postgres";
+        String db_pass = "root";
+        
+        String roll = request.getParameter("rollno");
+        String name = request.getParameter("name");
+        String dept = request.getParameter("branch");
+        
+        Connection connection;
+        PrintWriter out = response.getWriter();
+                try {        
+            Class.forName("org.postgresql.Driver");    
+        } catch(ClassNotFoundException e ){
+              //e.getMessage();
+              out.println(e.getMessage());
+        }    
+        try {
+                connection = DriverManager.getConnection(url, db_user, db_pass);
+                out.println("Connected");
+                Statement stmt = connection.createStatement();                
+                int i = stmt.executeUpdate("update data set name='"+name+"', department='"+dept+"' where rollno='"+roll+"';");
+                out.println("Successfully Updated !");
+                connection.close();
+        } catch (SQLException ex) {
+        out.println(ex.getMessage());        
+        }
+    }
+
+protected void processRequestAll(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Connection connection;
+        String url = "jdbc:postgresql://localhost:5432/student";
+        String db_user = "postgres";
+        String db_pass = "root";
+        String roll = null;
+        String name = null;
+        String dept = null;
+        PrintWriter out = response.getWriter();
+        try {        
+            Class.forName("org.postgresql.Driver");    
+        } catch(ClassNotFoundException e ){
+              //e.getMessage();
+              out.println(e.getMessage());
+        }    
+        try {
+                
+                Boolean found = false;
+                connection = DriverManager.getConnection(url, db_user, db_pass);
+                out.println("Connected");
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery("select * from data;");
+                while(rs.next())
+                {
+                        roll = rs.getString("rollno");
+                        name = rs.getString("name");
+                        dept = rs.getString("department");
+                        out.println(name);
+                        out.println(roll);
+                        out.println(dept);
+                        out.println();
+                }
+                
                 connection.close();
         } catch (SQLException ex) {
         out.println(ex.getMessage());        
@@ -120,11 +239,11 @@ public class servlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        processRequest(request, response);
-//    }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -137,13 +256,19 @@ public class servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                PrintWriter out = response.getWriter();
+             PrintWriter out = response.getWriter();
             String reg_button = request.getParameter("register");
-            out.println(reg_button);            
+                      
             if(reg_button.equals("Register"))
-                processRequestReg(request, response);
+                processRequestReg(request, response); 
+            else if(reg_button.equals("Search"))
+                processRequestSearch(request, response);   
+            else if(reg_button.equals("Delete"))
+                processRequestDel(request, response); 
+            else if(reg_button.equals("Update"))
+                processRequestUp(request, response); 
             else
-                processRequestLog(request, response);
+                  processRequestAll(request, response);  
     }
 
     /**

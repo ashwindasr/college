@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Employee details</title>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="hide.js"></script>
+	</head>
+	<body>
+
+		<h1 align='center'>Hospital Admin Panel</h1>
+
+		<div align='center'>
+			<button onclick="unhide(1)" >Input</button>
+			<button onclick="unhide(2)" >Search</button>
+			<button onclick="unhide(3)" >Delete</button>
+                        <button onclick="unhide(5)" >Update</button>
+			<button onclick="unhide(4)" >All</button>
+		</div>
+		<br>
+		<div>
+			<div id="employee_input" align='center' >
+				<fieldset style="width:200px">
+					<legend>Hospital Data Input</legend>
+					<form name="student_input" method="post" action="reg.jsp" >
+						<label>Name: </label><input type="text" name='name' autofocus required /><br /><br />
+                                                <label>Height </label><input type="text" name='height' autofocus required /><br /><br />
+                                                <label>Weight: </label><input type="text" name='weight' autofocus required /><br /><br />
+                                                <label>Blood Group: </label><input type="text" name='blood' autofocus required /><br /><br />
+						<input type="submit" name="register" value="Register"  />
+					</form>
+				</fieldset>
+			</div>
+			<div id="employee_search" align='center' hidden>
+				<fieldset style="width:200px">
+					<legend>Patient Search</legend>
+					<form name="my_form2" method="post" action="search.jsp" >
+						<label>Patient no: </label><input type="text" name='id' required/><br /><br />
+						<input type="submit" name='register' value="Search" />
+					</form>
+				</fieldset>
+			</div>
+                        <div id="employee_update" align='center' hidden>
+				<fieldset style="width:200px">
+					<legend>Patient Data Update</legend>
+					<form name="my_form2" method="post" action="update.jsp" >
+						<label>Name: </label><input type="text" name='name' autofocus required /><br /><br />
+						<label>Patient no: </label><input type="text" name='id' required/><br /><br />
+                                                <label>Height : </label><input type="text" name='height' required/><br /><br />
+                                                <label>Weight : </label><input type="text" name='weight' required/><br /><br />
+                                                <label>Blood Group: </label><input type="text" name='blood' required/><br /><br />
+						<input type="submit" name="register" value="Update"  />
+					</form>
+				</fieldset>
+			</div>
+		</div>
+		<div id="employee_delete" align='center' hidden>
+			<fieldset style="width:200px">
+				<legend>Patient Delete</legend>
+				<form name="my_form2" method="post" action="delete.jsp" onsubmit="alert('Are you sure ?')" >
+					<label>Patient no: </label><input type="text" name='id' required/><br /><br />
+					<input type="submit" name='register' value="Delete" />
+				</form>
+			</fieldset>
+		</div>
+		<div id="employee_all" align='center' hidden>
+			<fieldset style="width:200px">
+				<legend>Display details of all patients</legend>
+				<form name="my_form2" method="post" action="all.jsp" >
+					<input type="submit" name='register' value="Cick Here" />
+				</form>
+			</fieldset>
+		</div>
+	</div>
+
+
+
+
+
+	</body>

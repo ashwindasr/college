@@ -28,7 +28,7 @@
     if(rs.next()){
         float balance = rs.getFloat("balance");
         balance += Float.parseFloat(amount);
-        int i = smt.executeUpdate("update data set balance='"+balance+"';");
+        int i = smt.executeUpdate("update data set balance='"+balance+"' where id='"+id+"';");
         if(i == 1){
             out.println("Balance updated");
             out.println("<br />Your current balance is Rs."+balance);

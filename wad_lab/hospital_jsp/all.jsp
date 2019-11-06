@@ -7,7 +7,7 @@
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-            Connection connection;
+         Connection connection;
         String url = "jdbc:postgresql://localhost:5432/hospital";
         String db_user = "postgres";
         String db_pass = "root";
@@ -34,7 +34,10 @@
                         height = rs.getString("height");
                         weight = rs.getString("weight");
                         blood = rs.getString("blood");
+                        idno = rs.getString("id");
                         out.println("Name: "+name);
+                        out.println("<br />");
+                        out.println("Patient No: "+idno);
                         out.println("<br />");
                         out.println("Height: "+height);
                         out.println("<br />");

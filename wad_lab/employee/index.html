@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Employee details</title>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="hide.js"></script>
+	</head>
+	<body>
+
+		<h1 align='center'>Employee Admin Panel</h1>
+
+		<div align='center'>
+			<button onclick="unhide(1)" >Input</button>
+			<button onclick="unhide(2)" >Search</button>
+			<button onclick="unhide(3)" >Delete</button>
+                        <button onclick="unhide(5)" >Update</button>
+			<button onclick="unhide(4)" >All</button>
+		</div>
+		<br>
+		<div>
+			<div id="employee_input" align='center' >
+				<fieldset style="width:200px">
+					<legend>Employee Data Input</legend>
+					<form name="student_input" method="post" action="servlet" >
+						<label>Name: </label><input type="text" name='name' autofocus required /><br /><br />
+						<label>Employee no: </label><input type="text" name='empno' required/><br /><br />
+						<label>Department: </label><input type="text" name='dept' required/><br /><br />
+						<input type="submit" name="register" value="Register"  />
+					</form>
+				</fieldset>
+			</div>
+			<div id="employee_search" align='center' hidden>
+				<fieldset style="width:200px">
+					<legend>Employee Search</legend>
+					<form name="my_form2" method="post" action="servlet" >
+						<label>Employee no: </label><input type="text" name='empno' required/><br /><br />
+						<input type="submit" name='register' value="Search" />
+					</form>
+				</fieldset>
+			</div>
+                        <div id="employee_update" align='center' hidden>
+				<fieldset style="width:200px">
+					<legend>Employee Data Update</legend>
+					<form name="my_form2" method="post" action="servlet" >
+						<label>Name: </label><input type="text" name='name' autofocus required /><br /><br />
+						<label>Employee no: </label><input type="text" name='empno' required/><br /><br />
+						<label>Department: </label><input type="text" name='dept' required/><br /><br />
+						<input type="submit" name="register" value="Update"  />
+					</form>
+				</fieldset>
+			</div>
+		</div>
+		<div id="employee_delete" align='center' hidden>
+			<fieldset style="width:200px">
+				<legend>Employee Delete</legend>
+				<form name="my_form2" method="post" action="servlet" onsubmit="alert('Are you sure ?')" >
+					<label>Employee no: </label><input type="text" name='empno' required/><br /><br />
+					<input type="submit" name='register' value="Delete" />
+				</form>
+			</fieldset>
+		</div>
+		<div id="employee_all" align='center' hidden>
+			<fieldset style="width:200px">
+				<legend>Display details of all employees</legend>
+				<form name="my_form2" method="post" action="servlet" >
+					<input type="submit" name='register' value="Cick Here" />
+				</form>
+			</fieldset>
+		</div>
+	</div>
+
+
+
+
+
+	</body>

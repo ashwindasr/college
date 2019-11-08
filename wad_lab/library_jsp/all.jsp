@@ -10,6 +10,7 @@
         String name = null;
         String isbn = null;
         String author = null;
+        int copies = 0;
         
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String db_user = "postgres";
@@ -29,10 +30,12 @@
                 name = rs.getString("name");
                 isbn = rs.getString("isbn");
                 author = rs.getString("author");
+                copies = rs.getInt("copies");
                 
                 out.println("Book Name: "+name+"<br />");
                 out.println("ISBN No: "+isbn+"<br />");
                 out.println("Author: "+author+"<br />");
+                out.println("Copies "+copies+"<br />");
                 out.println("<br />");
             }
             conn.close();

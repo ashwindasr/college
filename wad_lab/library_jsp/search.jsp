@@ -23,14 +23,14 @@
       
             Connection conn = DriverManager.getConnection(url,db_user,db_pass);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from library");
-            while(rs.next()){
-                id = rs.getString("isbn");
-                if(id.equals(isbn))
+            ResultSet rs = stmt.executeQuery("select * from library where isbn='"+isbn+"';");
+            if(rs.next()){
+    
                 {
                     out.println("Book Name: "+rs.getString("name")+"<br />");
                     out.println("ISBN No: "+rs.getString("isbn")+"<br />");
                     out.println("Author: "+rs.getString("author")+"<br />");
+                    out.println("Copies: "+rs.getInt("copies")+"<br />");
                     out.println("<br />");
                 }
                 
@@ -38,4 +38,3 @@
             conn.close();
        out.println("<br /><a href='index.jsp'>Go back to console</a>");
 %>
-

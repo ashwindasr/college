@@ -20,12 +20,25 @@
         }catch(ClassNotFoundException e){
             out.println(e.getMessage());
         }
-        
+                int c = 0;
               Connection conn = DriverManager.getConnection(url,db_user,db_pass);
               Statement stmt = conn.createStatement();
-              int i = stmt.executeUpdate("insert into library(name,isbn,author) values('"+name+"','"+isbn+"','"+author+"');");
-              out.println("Successfully Registered");
-              conn.close();
-              out.println("<br /><br /><a href='index.jsp'>Go back to console</a>");
+              ResultSet rs = stmt.executeQuery("select * from library where isbn='"+isbn+"';");
+            if(rs.next()){
+                
+                c = rs.getInt("copies");
+                c += 1;
+                int i = stmt.executeUpdate("update library set copies='"+c+"' where isbn='"+isbn+"';");
+                out.println("Updated successfully");
+                conn.close();
+                out.println("<br /><br /><a href='index.jsp'>Go back to console</a>");
+            }
+            else{
+                int i = stmt.executeUpdate("insert into library(name,isbn,author,copies) values('"+name+"','"+isbn+"','"+author+"','1');");
+                out.println("Successfully Registered");
+                conn.close();
+                out.println("<br /><br /><a href='index.jsp'>Go back to console</a>");
+            }
+              
     
 %>
